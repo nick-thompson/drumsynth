@@ -1,5 +1,5 @@
 {
-  "name": "drumsynth",
+  "name": "@nick-thompson/drumsynth",
   "version": "0.1.0",
   "description": "A drum synthesis library in JavaScript with Elementary",
   "main": "index.js",
