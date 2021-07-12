@@ -1,0 +1,17 @@
+{
+  "name": "drumsynth",
+  "version": "0.1.0",
+  "description": "A drum synthesis library in JavaScript with Elementary",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec elementary examples/stepseq.js"
+  },
+  "author": "Nick Thompson",
+  "license": "MIT",
+  "dependencies": {
+    "@nick-thompson/elementary": "^0.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
