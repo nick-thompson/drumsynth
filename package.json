@@ -1,6 +1,6 @@
 {
   "name": "@nick-thompson/drumsynth",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A drum synthesis library in JavaScript with Elementary",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Nick Thompson",
   "license": "MIT",
   "dependencies": {
-    "@nick-thompson/elementary": "^0.2.1"
+    "@nick-thompson/elementary": "^0.9.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

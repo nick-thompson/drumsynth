@@ -1,4 +1,3 @@
-const core = require('elementary-core');
 const el = require('@nick-thompson/elementary');
 const ds = require('..');
 
@@ -12,7 +11,7 @@ function modulate(x, rate, amount) {
 const kickPattern = [1, 0, 0, 1, 0, 1, 1, 0];
 const clapPattern = [0, 0, 1, 0, 0, 0, 1, 0];
 
-core.on('load', function() {
+elementary.core.on('load', function() {
   let gate = el.train(6);
 
   let kickSeq = el.seq({seq: kickPattern, hold: true}, gate);
@@ -45,6 +44,6 @@ core.on('load', function() {
   );
 
   // Duplicate the output into the left and right channel.
-  core.render(out, out);
+  elementary.core.render(out, out);
 });
 

@@ -1,5 +1,4 @@
 const el = require('@nick-thompson/elementary');
-const core = require('elementary-core');
 
 
 /** A quick helper for a sine wave oscillator with a phase offset. */

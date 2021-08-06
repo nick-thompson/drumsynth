@@ -1,5 +1,4 @@
 const el = require('@nick-thompson/elementary');
-const core = require('elementary-core');
 
 
 /**
