@@ -1,4 +1,4 @@
-const el = require('@nick-thompson/elementary');
+import {el} from '@nick-thompson/elementary';
 
 
 /** A quick helper for a sine wave oscillator with a phase offset. */
@@ -17,7 +17,6 @@ function cycle(freq, phaseOffset) {
  * and 3170Hz, borrowing slightly from the tuning of the DR110. The first modulator runs
  * at exactly twice the frequency of the carrier to introduce square-like harmonics.
  *
- * @param {Object} [props]
  * @param {core.Node|number} pitch - Base frequency in the range [317Hz, 3170Hz]
  * @param {core.Node|number} tone - Bandpass filter cutoff frequency, tuned for [800Hz, 18kHz]
  * @param {core.Node|number} attack - Attack time in seconds, tuned for [0.005s, 0.2s]
@@ -25,7 +24,7 @@ function cycle(freq, phaseOffset) {
  * @param {core.Node|number} gate - The pulse train which triggers the amp envelope
  * @returns {core.Node}
  */
-function hat(props, pitch, tone, attack, decay, gate) {
+export default function hat(pitch, tone, attack, decay, gate) {
   // Synthesis
   let m2 = el.noise();
   let m1 = cycle(el.mul(2, pitch), el.mul(2, m2));
@@ -41,5 +40,3 @@ function hat(props, pitch, tone, attack, decay, gate) {
 
   return el.mul(f, env);
 }
-
-module.exports = el.createNodeFactory(hat);

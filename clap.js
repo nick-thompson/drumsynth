@@ -1,17 +1,16 @@
-const el = require('@nick-thompson/elementary');
+import {el} from '@nick-thompson/elementary';
 
 
 /**
  * Clap synthesis via filtered white noise.
  *
- * @param {Object} [props]
  * @param {core.Node|number} tone - Bandpass filter cutoff frequency, tuned for [400Hz, 3500Hz]
  * @param {core.Node|number} attack - Attack time in seconds, tuned for [0s, 0.2s]
  * @param {core.Node|number} decay - Decay time in seconds, tuned for [0s, 4.0s]
  * @param {core.Node|number} gate - The pulse train which triggers the amp envelope
  * @returns {core.Node}
  */
-function clap(props, tone, attack, decay, gate) {
+export default function clap(tone, attack, decay, gate) {
   // Layered white noise synthesis
   let no = el.noise();
 
@@ -35,5 +34,3 @@ function clap(props, tone, attack, decay, gate) {
     )
   );
 }
-
-module.exports = el.createNodeFactory(clap);

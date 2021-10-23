@@ -1,5 +1,5 @@
-const el = require('@nick-thompson/elementary');
-const ds = require('..');
+import {ElementaryNodeRenderer as core, el} from '@nick-thompson/elementary';
+import ds from '../index.js';
 
 
 // A simple helper function for essentially applying a sine shape LFO to a given
@@ -11,7 +11,7 @@ function modulate(x, rate, amount) {
 const kickPattern = [1, 0, 0, 1, 0, 1, 1, 0];
 const clapPattern = [0, 0, 1, 0, 0, 0, 1, 0];
 
-elementary.core.on('load', function() {
+core.on('load', function() {
   let gate = el.train(6);
 
   let kickSeq = el.seq({seq: kickPattern, hold: true}, gate);
@@ -44,6 +44,7 @@ elementary.core.on('load', function() {
   );
 
   // Duplicate the output into the left and right channel.
-  elementary.core.render(out, out);
+  core.render(out, out);
 });
 
+core.initialize();

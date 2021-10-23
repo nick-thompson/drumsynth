@@ -1,10 +1,9 @@
-const el = require('@nick-thompson/elementary');
+import {el} from '@nick-thompson/elementary';
 
 
 /**
  * Kick drum synthesis via a pitched sine sweep
  *
- * @param {Object} [props]
  * @param {core.Node|number} pitch - The base frequency of the kick drum in Hz
  * @param {core.Node|number} click - The speed of the pitch envelope, tuned for [0.005s, 1s]
  * @param {core.Node|number} attack - Attack time in seconds, tuned for [0.005s, 0.4s]
@@ -13,7 +12,7 @@ const el = require('@nick-thompson/elementary');
  * @param {core.Node|number} gate - The pulse train which triggers the amp envelope
  * @returns {core.Node}
  */
-function kick(props, pitch, click, attack, decay, drive, gate) {
+export default function kick(pitch, click, attack, decay, drive, gate) {
   // First up we have our amp envelope
   let env = el.adsr(attack, decay, 0.0, 0.1, gate);
 
@@ -41,5 +40,3 @@ function kick(props, pitch, click, attack, decay, drive, gate) {
   // Then you can drive it into a soft clipper with a gain multiplier in [1, 10]
   return el.tanh(el.mul(clean, drive));
 }
-
-module.exports = el.createNodeFactory(kick);

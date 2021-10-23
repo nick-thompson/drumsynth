@@ -1,10 +1,12 @@
-const el = require('@nick-thompson/elementary');
+import kick from './kick.js';
+import hat from './hat.js';
+import clap from './clap.js';
 
-const kick = require('./kick');
-const hat = require('./hat');
-const clap = require('./clap');
+export {kick as kick};
+export {hat as hat};
+export {clap as clap};
 
-module.exports = {
+export default {
   kick,
   hat,
   clap,

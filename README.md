@@ -5,15 +5,14 @@ A small drum synthesis library for [Elementary](https://www.elementary.audio/).
 ## Installation
 
 ```bash
-$ npm install @nick-thompson/drumsynth
+$ npm install --save @nick-thompson/drumsynth
 ```
 
 ## Usage
 
 ```js
-const core = require('elementary-core');
-const el = require('@nick-thompson/elementary');
-const ds = require('@nick-thompson/drumsynth');
+import {ElementaryNodeRenderer as core, el} from '@nick-thompson/elementary';
+import ds from '@nick-thompson/drumsynth';
 
 // The simplest example: a kick, hat, and clap playing on every step of a
 // pulse train running at 4Hz.
@@ -28,13 +27,14 @@ core.on('load', function() {
     ),
   );
 );
+
+core.initialize();
 ```
 
 ## Reference
 
-### ds.kick(props, pitch, click, attack, decay, drive, gate)
+### ds.kick(pitch, click, attack, decay, drive, gate)
 
-* @param {Object} [props] – Optional
 * @param {core.Node|number} pitch - The base frequency of the kick drum in Hz
 * @param {core.Node|number} click - The speed of the pitch envelope, tuned for [0.005s, 1s]
 * @param {core.Node|number} attack - Attack time in seconds, tuned for [0.005s, 0.4s]
@@ -43,18 +43,16 @@ core.on('load', function() {
 * @param {core.Node|number} gate - The pulse train which triggers the amp envelope
 * @returns {core.Node}
 
-### ds.clap(props, tone, attack, decay, gate)
+### ds.clap(tone, attack, decay, gate)
 
-* @param {Object} [props] – Optional
 * @param {core.Node|number} tone - Bandpass filter cutoff frequency, tuned for [400Hz, 3500Hz]
 * @param {core.Node|number} attack - Attack time in seconds, tuned for [0s, 0.2s]
 * @param {core.Node|number} decay - Decay time in seconds, tuned for [0s, 4.0s]
 * @param {core.Node|number} gate - The pulse train which triggers the amp envelope
 * @returns {core.Node}
 
-### ds.hat(props, pitch, tone, attack, decay, gate)
+### ds.hat(pitch, tone, attack, decay, gate)
 
-* @param {Object} [props] – Optional
 * @param {core.Node|number} pitch - Base frequency in the range [317Hz, 3170Hz]
 * @param {core.Node|number} tone - Bandpass filter cutoff frequency, tuned for [800Hz, 18kHz]
 * @param {core.Node|number} attack - Attack time in seconds, tuned for [0.005s, 0.2s]
@@ -65,8 +63,9 @@ core.on('load', function() {
 ## Running the Example
 
 This repo has a simple step sequencer example which demonstrates some of the
-sounds available via the drum synths here. To hear it, just clone the repository,
-run `npm install`, and `npm start`:
+sounds available via the drum synths here. To hear it, you'll first need to install
+Elementary at your command line (see [https://docs.elementary.audio](https://docs.elementary.audio/)),
+then just clone the repository, run `npm install`, and `npm start`:
 
 ```bash
 $ git clone https://github.com/nick-thompson/drumsynth.git
