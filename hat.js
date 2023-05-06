@@ -1,9 +1,9 @@
-import {el} from '@nick-thompson/elementary';
+import {el} from '@elemaudio/core';
 
 
 /** A quick helper for a sine wave oscillator with a phase offset. */
 function cycle(freq, phaseOffset) {
-  let t = el.add(el.phasor(freq), phaseOffset);
+  let t = el.add(el.phasor(freq, 0), phaseOffset);
   let p = el.sub(t, el.floor(t));
 
   return el.sin(el.mul(2 * Math.PI, p));

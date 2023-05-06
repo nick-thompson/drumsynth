@@ -1,4 +1,4 @@
-import {el} from '@nick-thompson/elementary';
+import {el} from '@elemaudio/core';
 
 
 /**
